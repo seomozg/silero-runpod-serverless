@@ -3,3 +3,5 @@ numpy
 soundfile
 requests
 runpod
+omegaconf
+typing_extensions
