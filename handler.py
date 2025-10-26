@@ -56,7 +56,7 @@ def download_file(url: str, dest: str):
             f.write(chunk)
 
 def load_silero_model(language=DEFAULT_LANGUAGE, speaker=MODEL_ID):
-    model, example_text, languages, speakers = torch.hub.load(
+    model, example_text = torch.hub.load(
         repo_or_dir=MODEL_REPO,
         model=MODEL_NAME,
         language=language,
