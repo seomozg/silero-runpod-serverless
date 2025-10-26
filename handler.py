@@ -17,8 +17,9 @@ except Exception:
 MODEL_REPO = os.getenv("MODEL_REPO", "snakers4/silero-models")
 MODEL_NAME = os.getenv("MODEL_NAME", "silero_tts")
 DEFAULT_LANGUAGE = os.getenv("DEFAULT_LANGUAGE", "ru")
-DEFAULT_SPEAKER = os.getenv("DEFAULT_SPEAKER", "aidar")
+DEFAULT_SPEAKER = os.getenv("DEFAULT_SPEAKER", "xenia")
 SAMPLE_RATE = int(os.getenv("SAMPLE_RATE", "48000"))
+MODEL_ID = os.getenv("MODEL_ID", "v4_ru")
 
 # RunPod Storage config (optional)
 # Provide RUNPOD_STORAGE_UPLOAD_URL and RUNPOD_STORAGE_API_KEY as environment variables
@@ -54,7 +55,7 @@ def download_file(url: str, dest: str):
         for chunk in r.iter_content(1024 * 32):
             f.write(chunk)
 
-def load_silero_model(language=DEFAULT_LANGUAGE, speaker=DEFAULT_SPEAKER):
+def load_silero_model(language=DEFAULT_LANGUAGE, speaker=MODEL_ID):
     model, example_text, languages, speakers = torch.hub.load(
         repo_or_dir=MODEL_REPO,
         model=MODEL_NAME,
